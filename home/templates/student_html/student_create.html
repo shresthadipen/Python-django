@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Blog Page</title>
+
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}
+Student Home
+{% endblock %}
+{% block content %}
+<h1>Create Student</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{% url 'student_list' %}">Cancel</a>
+</form>
+<br>
+
+
+
+{% endblock %}
+</body>
+</html>
+

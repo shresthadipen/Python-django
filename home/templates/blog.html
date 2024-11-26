@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}"></head>
+<body>
+    <header>
+        
+        <h1>{{admin.0.name}}</h1>
+        <h2>{{admin.0.address}}</h2>
+
+        <p>{{text}}</p>
+    </header>
+    <main>
+        <article class="post">
+            <h2>Blog Post Title 1</h2>
+            <p class="date">Posted on November 12, 2024</p>
+            <p>This is a short excerpt of the blog post content. Read more about my insights and experiences...</p>
+        </article>
+        
+        <article class="post">
+            <h2>Blog Post Title 2</h2>
+            <p class="date">Posted on November 5, 2024</p>
+            <p>Here's another blog post, sharing ideas on various topics and providing value to readers...</p>
+        </article>
+
+        <table>
+            <tr>
+                <th>S.N</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Age Group</th>
+            </tr>
+
+            {% for person in people %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.address}}</td>
+                <td>{{person.age}}</td>
+                <td>
+                    {% if preson.age < 12 %}
+                    Child
+                    {% elif person.age < 20 %}
+                    Teenager
+                    {% elif person.age <= 40 %}
+                    Adult
+                    {% else %}
+                    Old Age
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+ 
+

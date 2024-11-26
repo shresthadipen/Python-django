@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    {% block title %}
+    Student List
+    {% endblock %}
+    
+{% block content %}
+<article class="blog-post">
+    
+    <h2>Welcome to Student List</h2>
+    <h1>Student List</h1>
+<a href="{% url 'student_create' %}">Add Student</a>
+<ul>
+    <table>
+        <tr>
+            <th>S.N</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+        
+        {% for student in student_list %}
+        
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.phone_no}}</td>
+        </tr>
+        
+        {% endfor %}
+        </table>
+</ul>
+
+{% endblock %}
+
+
+</body>
+</html>
