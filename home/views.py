@@ -74,6 +74,7 @@ def student_create(request):
     return render(request, 'student_html/student_create.html', {'form': form})
 
 
+# Customer 
 def customer_list(request):
     customer_list = Customer.objects.all()
     return render(request, 'customer_html/customer_list.html', context={'customer_list' : customer_list})
@@ -87,3 +88,19 @@ def customer_create(request):
     else:
         form = CustumerForms()
     return render(request, 'customer_html/customer_create.html', {'form': form})
+
+
+def customer_detail(request, id):
+    customer = get_object_or_404(Customer, id=id)
+    return render(request, 'customer_html/customer_detail.html', {'customer': customer})
+
+def customer_update(request, id):
+    customer = get_object_or_404(Customer, id=id)
+    if request.method == 'POST':
+        form = CustumerForms(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('customer_list')
+    else:
+        form = CustumerForms(instance=customer)
+    return render(request, 'customer_html/customer_form.html', {'form': form})

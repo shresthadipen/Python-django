@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Simple Blog Page</title>
-
-</head>
-<body>
 {% extends 'base2.html' %}
 
 {% block title %}
-Customer Home
+    Customer Home
 {% endblock %}
+
 {% block content %}
-<h1>Add Customer</h1>
+<!-- myapp/templates/myapp/blog_form.html -->
+<h1>{% if form.instance.id %}Edit Customer Details{% else %}Add Blog{% endif %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -22,9 +15,5 @@ Customer Home
 </form>
 <br>
 
-
-
 {% endblock %}
-</body>
-</html>
 

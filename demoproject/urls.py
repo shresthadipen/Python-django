@@ -32,6 +32,8 @@ urlpatterns = [
 
     path('customer_list/', views.customer_list, name='customer_list'),
     path('customer_create/', views.customer_create, name='customer_create'),
+    path('customer/<int:id>/', views.customer_detail, name='customer_detail'),
+    path('customer/<int:id>/edit/', views.customer_update, name='customer_update'),
 
     
 ]

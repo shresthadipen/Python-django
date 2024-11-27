@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+
+{% block title %}
+    Customer Home
+{% endblock %}
+
+{% block content %}
+<!-- myapp/templates/myapp/blog_detail.html -->
+<p><strong>Name:</strong> {{ customer.customer_name }}</p>
+<p><strong>Address:</strong> {{ customer.address }}</p>
+<p><strong>Email:</strong> {{ customer.email }}</p>
+<p><strong>Phone Number:</strong> {{ customer.phone_no }}</p>
+<p><strong>Created At:</strong> {{ customer.created_at }}</p>
+<a href="{% url 'customer_list' %}">Back to list</a>
+
+<br>
+<br>
+
+{% endblock %}
+

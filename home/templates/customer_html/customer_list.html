@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +27,19 @@
             <th>Address</th>
             <th>Email</th>
             <th>Phone Number</th>
+            <th>Update</th>
         </tr>
         
         {% for customer in customer_list %}
         
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{customer.customer_name}}</td>
+            <td><a style="background-color: unset; color: black;" href="{% url 'customer_detail' customer.id %}">{{customer.customer_name}}</a></td>
             <td>{{customer.address}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phone_no}}</td>
+            <td><a style="background-color: unset; color: black;" href="{% url 'customer_update' customer.id %}">Update</a></td>
+            
         </tr>
         
         {% endfor %}
