@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog,Student, Customer
 from .forms import BlogForm, StudentForm, CustumerForms
 
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def blog (request):
     people = [
@@ -75,6 +77,7 @@ def student_create(request):
 
 
 # Customer 
+@login_required
 def customer_list(request):
     customer_list = Customer.objects.all()
     return render(request, 'customer_html/customer_list.html', context={'customer_list' : customer_list})

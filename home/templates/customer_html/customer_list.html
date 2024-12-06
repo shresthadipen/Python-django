@@ -5,15 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .logout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; 
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .logout{
+            text-decoration: none;
+            color: #007BFF; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }   
+
+        .logout:hover {
+            color: #0056b3; 
+        }
+
+    </style>
 </head>
 <body>
-    
-    
     {% block title %}
     Student List
     {% endblock %}
     
 {% block content %}
+<br>
+    <a class="logout" href="{% url 'logout' %}">Logout</a>
+    <br><br>
 <article class="blog-post">
     
     <h2>Welcome to Customer List</h2>

@@ -5,9 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Blog Page</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}"></head>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <style>
+        .log-sig {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; 
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .log, .sig{
+            text-decoration: none;
+            color: #007BFF; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }   
+
+        .log:hover {
+            color: #0056b3; 
+        }
+
+        .sig:hover {
+            color: #0056b3; 
+        }
+
+        /* .log-sig {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        } */
+
+</style></head>
 <body>
     <header>
+        <div class="log-sig">
+            <span><a class="log" href="{% url 'login' %}">Login</a></span>
+            <a class="sig" href="{% url 'signup' %}">Signup</a>
+        </div>
         
         <h1>{{admin.0.name}}</h1>
         <h2>{{admin.0.address}}</h2>
